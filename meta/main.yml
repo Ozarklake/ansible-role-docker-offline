@@ -2,9 +2,9 @@
 dependencies: []
 
 galaxy_info:
-  role_name: docker-offline
+  role_name: docker_offline
   author: Ozarklake
-  description: Offline installation of docker
+  description: Offline installation of Docker
   license: "license (MIT)"
   min_ansible_version: 2.4
   platforms:

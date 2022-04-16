@@ -27,7 +27,7 @@ Should work on most distributions that use Systemd, if you get a problem, feel f
 
 ## Installation
 
-Use `ansible-galaxy install ozarklake.docker-offline
+Use `ansible-galaxy install ozarklake.docker_offline
 ` to install the latest stable release of role.
 
 ## Dependencies
@@ -67,7 +67,7 @@ You need to download the [Docker binaries](https://download.docker.com/linux/sta
 ```yaml
 - hosts: all
   roles:
-    - ozarklake.docker-offline
+    - ozarklake.docker_offline
 ```
 
 ## License

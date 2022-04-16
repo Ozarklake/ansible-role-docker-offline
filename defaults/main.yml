@@ -6,7 +6,7 @@ docker_binary_name: docker.tar.gz
 
 # Docker Compose options.
 docker_install_compose: true
-docker_compose_binary_name: docker-compose 
+docker_compose_binary_name: docker-compose
 
 # Docker daemon options as a dict
 docker_daemon_options: {}
