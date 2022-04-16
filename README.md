@@ -1,9 +1,9 @@
 # Ansible Role: Docker-offline. 
-------------
+
 An Ansible Role that installs [Docker](https://www.docker.com) on Linux. No internet required
 
 ## Requirements
-------------
+
 This role developed and tested with following Ansible versions:
 | Name                                                   | Version         |
 |--------------------------------------------------------|-----------------|
@@ -14,7 +14,6 @@ This role developed and tested with following Ansible versions:
 Other Ansible versions was not tested but will probably work.
 
 ## Platforms
-------------
 
 | Name   | Version             |
 |--------|---------------------|
@@ -27,16 +26,16 @@ Other Ansible versions was not tested but will probably work.
 Should work on most distributions that use Systemd, if you get a problem, feel free to open an issue
 
 ## Installation
-------------
+
 Use `ansible-galaxy install ozarklake.docker-offline
 ` to install the latest stable release of role.
 
 ## Dependencies
-------------
+
 None
 
 ## Role Variables
-------------
+
 Available variables are listed below, along with default values (see defaults/main.yml):
 
 ```yaml
@@ -62,7 +61,7 @@ docker_daemon_options: {}
 ```
 
 ## Example Playbook
-------------
+
 You need to download the [Docker binaries](https://download.docker.com/linux/static/stable/) in advance and put them in your working directory. Also. If you need to install [docker-compose](https://github.com/docker/compose/releases). 
 
 ```yaml
@@ -72,5 +71,5 @@ You need to download the [Docker binaries](https://download.docker.com/linux/sta
 ```
 
 ## License
-------------
+
 MIT
