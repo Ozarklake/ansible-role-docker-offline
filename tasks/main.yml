@@ -1,0 +1,33 @@
+- name: Copy the offline package
+  ansible.builtin.unarchive: 
+    src: "{{ docker_binary_name }}"
+    dest: "/usr/bin/"
+    extra_opts: [--strip-components=1]
+
+- name: Configure systemd service of Docker.
+  ansible.builtin.template: 
+    src: "templates/docker.service.j2"
+    dest: "/usr/lib/systemd/system/docker.service"
+  notify: restart docker
+
+- name: Ensure /etc/docker/ directory exists.
+  ansible.builtin.file:
+    path: /etc/docker
+    state: directory
+    mode: 0755
+  when: docker_daemon_options.keys() | length > 0
+
+- name: Configure Docker daemon options.
+  ansible.builtin.copy:
+    content: "{{ docker_daemon_options | to_nice_json }}"
+    dest: /etc/docker/daemon.json
+    mode: 0644
+  when: docker_daemon_options.keys() | length > 0
+  notify: restart docker
+
+- name: Install Docker Compose (if configured).
+  ansible.builtin.copy:
+    src: "{{ docker_compose_binary_name }}"
+    dest: "/usr/bin/docker-compose"
+    mode: u=rwx,g=rx,o=rx
+  when: docker_install_compose
