@@ -1,3 +1,13 @@
+- name: Check if iptables is installed
+  shell: "iptables --version"
+  register: is_iptables_exist
+  ignore_errors: yes
+
+- name: Iptables does not exist
+  fail:
+    msg: "iptables is required. see https://docs.docker.com/network/iptables/"
+  when: is_iptables_exist.rc != 0
+
 - name: Copy the offline package
   ansible.builtin.unarchive:
     src: "{{ docker_binary_name }}"
