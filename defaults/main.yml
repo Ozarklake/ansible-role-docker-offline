@@ -1,5 +1,5 @@
 # Service options.
-docker_service_state: started
+docker_service_state: restarted
 docker_service_enabled: true
 
 docker_binary_name: docker.tar.gz
