@@ -8,6 +8,11 @@
     msg: "iptables is required. see https://docs.docker.com/network/iptables/"
   when: is_iptables_exist.rc != 0
 
+- name: Add the Docker group
+  ansible.builtin.group:
+    name: docker
+    state: present 
+
 - name: Copy the offline package
   ansible.builtin.unarchive:
     src: "{{ docker_binary_name }}"
